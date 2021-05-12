@@ -5,7 +5,7 @@ from DeepCFR.TrainingProfile import TrainingProfile
 from DeepCFR.workers.driver.Driver import Driver
 
 if __name__ == '__main__':
-    ctrl = Driver(t_prof=TrainingProfile(name="SD-CFR_NLTH_TEST",
+    ctrl = Driver(t_prof=TrainingProfile(name="D-CFR_NLTH_EVAL",
                                          nn_type="feedforward",
                                          max_buffer_size_adv=3e6,
                                          eval_agent_export_freq=20,  # export API to play against the agent
@@ -34,7 +34,7 @@ if __name__ == '__main__':
                                          DISTRIBUTED=False,
                                          ),
                   eval_methods={
-                      "rl_br": 3,
+                      "h2h": 3,
     },
         n_iterations=None)
     ctrl.run()
