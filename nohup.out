@@ -1,0 +1,79 @@
+ ************************** Initing args for:  D-CFR_NLTH_TEST   **************************
+Creating Chief...
+Creating Head-to-Head Mode Evaluator...
+Traceback (most recent call last):
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/urllib3/connection.py", line 170, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/urllib3/util/connection.py", line 96, in create_connection
+    raise err
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/urllib3/util/connection.py", line 86, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/urllib3/connectionpool.py", line 706, in urlopen
+    chunked=chunked,
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/urllib3/connectionpool.py", line 394, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/urllib3/connection.py", line 234, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/http/client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/http/client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/http/client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/http/client.py", line 1042, in _send_output
+    self.send(msg)
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/http/client.py", line 980, in send
+    self.connect()
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/urllib3/connection.py", line 200, in connect
+    conn = self._new_conn()
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/urllib3/connection.py", line 182, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7fe4e8c44080>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/urllib3/connectionpool.py", line 756, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/urllib3/util/retry.py", line 574, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8889): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fe4e8c44080>: Failed to establish a new connection: [Errno 111] Connection refused',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/pycrayon/crayon.py", line 26, in __init__
+    r = requests.get(self.url)
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/requests/sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/requests/sessions.py", line 655, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8889): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fe4e8c44080>: Failed to establish a new connection: [Errno 111] Connection refused',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "nlth_deep_cfr.py", line 39, in <module>
+    n_iterations=None)
+  File "/home/poker_bot/Deep-CFR-Train/DeepCFR/workers/driver/Driver.py", line 21, in __init__
+    chief_cls=Chief, eval_agent_cls=EvalAgentDeepCFR)
+  File "/home/poker_bot/Deep-CFR-Train/PokerRL/rl/base_cls/workers/DriverBase.py", line 146, in __init__
+    runs_cluster=t_prof.CLUSTER,
+  File "/home/poker_bot/Deep-CFR-Train/PokerRL/_/CrayonWrapper.py", line 25, in __init__
+    self._crayon = CrayonClient(hostname=crayon_server_address)
+  File "/home/poker_bot/anaconda3/envs/deep_cfr_pkr_rl/lib/python3.6/site-packages/pycrayon/crayon.py", line 37, in __init__
+    raise ValueError(msg.format(self.hostname, self.port))
+ValueError: The server at localhost:8889 does not appear to be up!
